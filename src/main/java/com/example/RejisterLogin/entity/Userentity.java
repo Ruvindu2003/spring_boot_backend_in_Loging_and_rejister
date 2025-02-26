@@ -1,29 +1,17 @@
 package com.example.RejisterLogin.entity;
 
-import com.example.RejisterLogin.dto.User;
 import jakarta.persistence.*;
-import lombok.*;
-
-@Getter
-@Setter
-@ToString
-@AllArgsConstructor
-@Data
-@NoArgsConstructor
+import lombok.Data;
 
 @Entity
-@Table(name = "User")
-
-public class Userentity extends User {
+@Table(name = "users")
+@Data  // Lombok will automatically generate getters & setters
+public class Userentity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(nullable = false,unique = true,length = 45)
-    private String email;
-    @Column(nullable = false,length = 640)
-    private String password;
-    @Column(nullable = false,length = 20)
+    private Long id;
     private String firstname;
-    @Column(nullable = false,length = 20)
     private String lastname;
+    private String email;
+    private String password;
 }
